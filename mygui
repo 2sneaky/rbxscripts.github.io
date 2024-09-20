@@ -1,0 +1,95 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Lucky Blocks GUI", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+-- Tab for Block Spawning
+local BlockTab = Window:MakeTab({
+	Name = "Block Spawning",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+-- Buttons for each block
+BlockTab:AddButton({
+	Name = "Spawn Galaxy Block",
+	Callback = function()
+		game.ReplicatedStorage.SpawnGalaxyBlock:FireServer()
+	end    
+})
+
+BlockTab:AddButton({
+	Name = "Spawn Lucky Block",
+	Callback = function()
+		game.ReplicatedStorage.SpawnLuckyBlock:FireServer()
+	end    
+})
+
+BlockTab:AddButton({
+	Name = "Spawn Diamond Block",
+	Callback = function()
+		game.ReplicatedStorage.SpawnDiamondBlock:FireServer()
+	end    
+})
+
+BlockTab:AddButton({
+	Name = "Spawn Rainbow Block",
+	Callback = function()
+		game.ReplicatedStorage.SpawnRainbowBlock:FireServer()
+	end    
+})
+
+BlockTab:AddButton({
+	Name = "Spawn Super Block",
+	Callback = function()
+		game.ReplicatedStorage.SpawnSuperBlock:FireServer()
+	end    
+})
+
+-- Tab for Other
+local OtherTab = Window:MakeTab({
+	Name = "Other",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+-- Slider for WalkSpeed
+OtherTab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 16,
+	Max = 500,
+	Default = 16,
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+
+-- Slider for JumpHeight
+OtherTab:AddSlider({
+	Name = "JumpHeight",
+	Min = 50,
+	Max = 300,
+	Default = 50,
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end    
+})
+
+-- Slider for HipHeight
+OtherTab:AddSlider({
+	Name = "HipHeight",
+	Min = 0,
+	Max = 100,
+	Default = 0,
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.HipHeight = Value
+	end    
+})
+
+-- Tab for Extra
+local ExtraTab = Window:MakeTab({
+	Name = "Extra",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+OrionLib:Init()
